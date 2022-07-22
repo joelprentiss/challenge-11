@@ -2,6 +2,9 @@ const express = require('express');
 const path = require('path');
 const notes = require('./db.json')
 
+// const PORT = process.env.PORT || 3001
+const PORT = 3001;
+
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -23,3 +26,6 @@ app.post('/api/notes', (req, res)=>{
     res.json(`${req.method} request recieved, ${req.body}`);
 });    
 
+app.listen(PORT, () =>
+  console.log(`App listening at http://localhost:${PORT} 🚀`)
+);
